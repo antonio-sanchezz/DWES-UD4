@@ -9,7 +9,11 @@
 <body>
 <?php
 
+$file = fopen("locations.csv", "r");
 
+while(0 == 0) {
+    echo fgetcsv($file);
+}
 
 ?>
 </body>
