@@ -13,14 +13,24 @@
 // Genera un nueva linea en el archivo, se comenta para que no se repita tantas veces.
 //$file = fopen("archivoEj1.txt", "a");
 //fwrite($file, "\r\n"); // Salto de linea.
-//fwrite($file, "Antonio Sanchez Espinosa");
+//fwrite($file, "Antonio Sanchez Espinosa,172,80,brown, white, brown,23,male,Earth,Human");
 //fclose($file);
 
 $file = fopen("archivoEj1.txt","r");
 
 while(!feof($file)) {
+    $row = explode(",", fgets($file));
     echo "<tr>";
-    echo "<td>" . fgets($file) . "</td>";
+    echo "<td>" . $row[0] . "</td>";
+    echo "<td>" . $row[1] . "</td>";
+    echo "<td>" . $row[2] . "</td>";
+    echo "<td>" . $row[3] . "</td>";
+    echo "<td>" . $row[4] . "</td>";
+    echo "<td>" . $row[5] . "</td>";
+    echo "<td>" . $row[6] . "</td>";
+    echo "<td>" . $row[7] . "</td>";
+    echo "<td>" . $row[8] . "</td>";
+    echo "<td>" . $row[9] . "</td>";
     echo "</tr>";
 }
 
