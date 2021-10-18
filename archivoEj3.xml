@@ -235,4 +235,4 @@
 
    </book>
 
-<formatOutput>1</formatOutput><book id="bk113"><author>Antonio Sanchez</author><title>New World</title><genre>Fantasy</genre><price>19.95</price><publish_date>2021-10-18</publish_date><description>The fantastic story of a programmer.</description></book></catalog>
+<book id="bk113"><author>Antonio Sanchez</author><title>New World</title><genre>Fantasy</genre><price>19.95</price><publish_date>2021-10-18</publish_date><description>The fantastic story of a programmer.</description></book></catalog>
