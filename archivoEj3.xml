@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <catalog>
 
    <book id="bk101">
@@ -236,4 +235,4 @@
 
    </book>
 
-</catalog>
+<book author="Antonio Sanchez"/></catalog>

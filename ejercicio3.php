@@ -36,11 +36,11 @@ foreach($informacion as $elementoHijo) {
 }
 echo "</table><br>";
 
-$biblioteca = $xml->createElement('catalog');
-$biblioteca = $xml->appendChild($biblioteca);
+$catalogo = $informacion->addChild('book');
+$catalogo->addAttribute("id", "bk113");
+$catalogo->addAttribute("author", "Antonio Sanchez");
 
-$libro = $xml->createElement('book');
-$libro = $libro->appendChild('asdasd');
+$informacion->asXML("archivoEj3.xml");
 
 echo "<table border='1'>";
 echo "<tr>";
