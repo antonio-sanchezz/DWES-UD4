@@ -8,25 +8,29 @@
 </head>
 <body>
     <table border="1">
-        <tr>
-            <th>Location</th>
-            <th>Latitude / Longitude</th>
-        </tr>
 <?php
 
 // Genera un nueva linea en el archivo, se comenta para que no se repita tantas veces.
 //$file = fopen("locations.csv", "a");
-//fputcsv($file, array("Sevilla", "37.3826,-5.99629"));
+//fputcsv($file, array('Sevilla', '37.3826,-5.99629'));
 //fclose($file);
-
 
 $file = fopen("locations.csv", "r");
 
-while(fgetcsv($file)) {
-    echo "<tr>";
-    echo "<td>" . fgetcsv($file)[0] . "</td>";
-    echo "<td>" . fgetcsv($file)[1] . "</td>";
-    echo "</tr>";
+$fila = true;
+
+while($fila) {
+    $fila = fgetcsv($file);
+    if (!empty($fila)) {
+        echo "<tr>";
+        echo "<td>" . $fila[0] . "</td>";
+        echo "<td>" . $fila[1] . "</td>";
+        echo "</tr>";
+    }
+}
+
+if (fgetcsv($file)) {
+    fclose($file);
 }
 
 ?>
