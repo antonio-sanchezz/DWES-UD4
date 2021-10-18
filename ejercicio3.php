@@ -20,6 +20,7 @@ foreach($informacion as $elementoHijo) {
     $contador++;
 }
 
+// Mostrar tabla con los datos del XML.
 echo "<table border='1'>";
 echo "<tr>";
 echo "<th>Título</th>";
@@ -36,11 +37,19 @@ foreach($informacion as $elementoHijo) {
 }
 echo "</table><br>";
 
+
+// Guardar un nuevo libro en el XML.
 $catalogo = $informacion->addChild('book');
 $catalogo->addAttribute("id", "bk113");
-$catalogo->addAttribute("author", "Antonio Sanchez");
+$catalogo->addChild("author", "Antonio Sanchez");
+$catalogo->addChild("title", "New World");
+$catalogo->addChild("genre", "Fantasy");
+$catalogo->addChild("price", "19.95");
+$catalogo->addChild("publish_date", "2021-10-18");
+$catalogo->addChild("description", "The fantastic story of a programmer.");
 
 $informacion->asXML("archivoEj3.xml");
+$informacion = simplexml_load_file("archivoEj3.xml");
 
 echo "<table border='1'>";
 echo "<tr>";
