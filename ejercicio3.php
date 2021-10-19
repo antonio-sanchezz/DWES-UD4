@@ -10,15 +10,10 @@
 <?php
 
 $informacion = simplexml_load_file("archivoEj3.xml");
-$contador = 0;
 
-foreach($informacion as $elementoHijo) {
-    if ($contador == 1) {
-        printf("Titulo: %s Genero: %s Precio: %s Fecha: %s Descripcion: %s", $elementoHijo->title, $elementoHijo->genre, $elementoHijo->price, $elementoHijo->publish_date, $elementoHijo->description);
-        break;
-    }
-    $contador++;
-}
+$libro2 = $informacion->book[1];
+
+printf("Titulo: %s Genero: %s Precio: %s Fecha: %s Descripcion: %s", $libro2->title, $libro2->genre, $libro2->price, $libro2->publish_date, $libro2->description);
 
 // Mostrar tabla con los datos del XML.
 echo "<table border='1'>";
