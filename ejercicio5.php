@@ -20,9 +20,9 @@
 
 
     // INSERTAR FILA.
-    $result = mysqli_query($mysqli, "INSERT INTO vuelos (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES ('Sevilla', 'Londres', '2021-02-02 11:00:00', 'Ryanair', 'R236')");
+    $resultIns = mysqli_query($mysqli, "INSERT INTO vuelos (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES ('Sevilla', 'Londres', '2021-02-02 11:00:00', 'Ryanair', 'R236')");
 
-    if (!$result) {
+    if (!$resultIns) {
         echo "La consulta no ha funcionado correctamente.";
     } else {
         echo "Se han insertado " . mysqli_affected_rows($mysqli) . " filas";
@@ -32,9 +32,9 @@
     }
 
     // ACTUALIZAR FILA.
-    $result = mysqli_query($mysqli, "UPDATE vuelos SET Companya = 'Iberia' WHERE Destino = 'Londres'");
+    $resultUpd = mysqli_query($mysqli, "UPDATE vuelos SET Companya = 'Iberia' WHERE Destino = 'Londres'");
 
-    if (!$result) {
+    if (!$resultUpd) {
         echo "La consola no ha funcionado correctamente.";
     } else {
         echo "Se han actualizado " . mysqli_affected_rows($mysqli) . " filas.";
@@ -42,9 +42,9 @@
     }
 
     // BORRAR FILA.
-    $result = mysqli_query($mysqli, "DELETE FROM vuelos WHERE Destino = 'Londres' AND Companya = 'Iberia'");
+    $resultBor = mysqli_query($mysqli, "DELETE FROM vuelos WHERE Destino = 'Londres' AND Companya = 'Iberia'");
     
-    if (!$result) {
+    if (!$resultBor) {
         echo "La consulta no ha funcionado correctamente.";
     } else {
         echo "Se han borrado " . mysqli_affected_rows($mysqli) . " filas.";
