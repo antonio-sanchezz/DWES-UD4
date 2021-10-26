@@ -32,8 +32,6 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
     return $execute;
 }
 
-creaVuelo("Valencia", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
-
 function modificaDestino($id, $nuevoDestino) {
     
     $db = connectionDB();
@@ -52,8 +50,6 @@ function modificaDestino($id, $nuevoDestino) {
     $db->close();
     return $execute;
 }
-
-modificaDestino(23, "Nevada");
 
 function modificaCompanya($id, $nuevaCompanya) {
 
@@ -74,8 +70,6 @@ function modificaCompanya($id, $nuevaCompanya) {
     return $execute;
 }
 
-modificaCompanya(23, "AvionesVoladoresSA");
-
 function eliminaVuelo($id) {
 
     $db = connectionDB();
@@ -95,8 +89,6 @@ function eliminaVuelo($id) {
     return $execute;
 }
 
-eliminaVuelo(21);
-
 function extraeVuelos() {
 
     $db = connectionDB();
@@ -107,13 +99,6 @@ function extraeVuelos() {
     $db->close();
 
     return $result;
-}
-
-// Extraemos todos los vuelos.
-$vuelos = extraeVuelos();
-while ($row = $vuelos->fetch_assoc()) {
-    echo "ID:" . $row['id'] . " - El vuelo con origen " . $row['Origen'] . " y destino " . $row['Destino'] . " tiene fecha prevista " . $row['Fecha'] . " y es operado por la compañía " . $row['Companya'] . " con el modelo de avion " . $row['ModeloAvion'] . "<br>";
-    echo "<br>";
 }
 
 ?>

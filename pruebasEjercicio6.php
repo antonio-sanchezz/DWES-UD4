@@ -10,6 +10,7 @@
     <?php
 
     require_once("ejercicio6.php");
+    //require_once("ejercicio7.php");
 
     // Creamos un nuevo vuelo.
     creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
