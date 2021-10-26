@@ -15,7 +15,7 @@
     //creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
 
     // Modificamos el destino de un vuelo.
-    //modificaDestino(7, "Italia");
+    modificaDestino(21, "Italia");
 
     // Modificamos la compañia de un vuelo.
     //modificaCompanya(7, "YoVuelo");

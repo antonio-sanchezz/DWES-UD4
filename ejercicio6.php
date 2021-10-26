@@ -18,6 +18,7 @@ function connectionDB() {
 function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
 
     $db = connectionDB();
+    $execute = false;
     
     $sql = "INSERT INTO vuelos (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES (?, ?, ?, ?, ?)";
 
@@ -36,6 +37,7 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
 function modificaDestino($id, $nuevoDestino) {
     
     $db = connectionDB();
+    $execute = false;
     
     $sql = "UPDATE vuelos SET Destino = ? WHERE id = ?";
 
@@ -54,6 +56,7 @@ function modificaDestino($id, $nuevoDestino) {
 function modificaCompanya($id, $nuevaCompanya) {
 
     $db = connectionDB();
+    $execute = false;
     
     $sql = "UPDATE vuelos SET Companya = ? WHERE id = ?";
 
@@ -72,6 +75,7 @@ function modificaCompanya($id, $nuevaCompanya) {
 function eliminaVuelo($id) {
 
     $db = connectionDB();
+    $execute = false;
     
     $sql = "DELETE FROM vuelos WHERE id = ?";
 
@@ -90,6 +94,7 @@ function eliminaVuelo($id) {
 function extraeVuelos() {
 
     $db = connectionDB();
+    $execute = false;
 
     $sql = "SELECT * FROM vuelos";
 
