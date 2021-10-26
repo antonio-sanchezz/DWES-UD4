@@ -12,7 +12,7 @@
     require_once("ejercicio6.php");
 
     // Creamos un nuevo vuelo.
-    //crearVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
+    //creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
 
     // Modificamos el destino de un vuelo.
     //modificaDestino(7, "Italia");

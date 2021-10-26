@@ -15,7 +15,7 @@ function connectionDB() {
 
 }
 
-function crearVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
+function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
 
     $db = connectionDB();
     
