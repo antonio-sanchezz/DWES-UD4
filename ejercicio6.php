@@ -27,12 +27,7 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
         mysqli_stmt_bind_param($stmt, "sssss", $origen, $destino, $fecha, $companya, $modeloAvion);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-
-        echo "Vuelo creado con éxito.<br>";
-    } else {
-        echo "Error al crear el vuelo.<br>";
     }
-
 }
 
 function modificaDestino($id, $nuevoDestino) {
@@ -47,12 +42,7 @@ function modificaDestino($id, $nuevoDestino) {
         mysqli_stmt_bind_param($stmt, "si", $nuevoDestino, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-
-        echo "Destino modificado con éxito.<br>";
-    } else {
-        echo "Error al modificar el destino.<br>";
     }
-
 }
 
 function modificaCompanya($id, $nuevaCompanya) {
@@ -67,12 +57,7 @@ function modificaCompanya($id, $nuevaCompanya) {
         mysqli_stmt_bind_param($stmt, "si", $nuevaCompanya, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-
-        echo "Compañia modificada con éxito.<br>";
-    } else {
-        echo "Error al modificar la compañia.<br>";
     }
-
 }
 
 function eliminaVuelo($id) {
@@ -87,12 +72,7 @@ function eliminaVuelo($id) {
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-
-        echo "Vuelo eliminado con éxito.<br>";
-    } else {
-        echo "Error al eliminar el vuelo.<br>";
     }
-
 }
 
 function extraeVuelos() {
