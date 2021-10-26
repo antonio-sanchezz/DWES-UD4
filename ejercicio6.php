@@ -28,6 +28,9 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+    mysqli_close($db);
+
+    return $stmt;
 }
 
 function modificaDestino($id, $nuevoDestino) {
@@ -43,6 +46,8 @@ function modificaDestino($id, $nuevoDestino) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+    mysqli_close($db);
+    return $stmt;
 }
 
 function modificaCompanya($id, $nuevaCompanya) {
@@ -58,6 +63,8 @@ function modificaCompanya($id, $nuevaCompanya) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+    mysqli_close($db);
+    return $stmt;
 }
 
 function eliminaVuelo($id) {
@@ -73,6 +80,8 @@ function eliminaVuelo($id) {
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+    mysqli_close($db);
+    return $stmt;
 }
 
 function extraeVuelos() {
@@ -92,9 +101,9 @@ function extraeVuelos() {
         while(mysqli_stmt_fetch($stmt)) {
             print "El vuelo con origen $origen y destino $destino tiene fecha prevista $fecha y es operado por la compañía $companya con el modelo de avion $modeloAvion <br>";
         }
-
         mysqli_stmt_close($stmt);
     }
-
+    mysqli_close($db);
+    return $stmt;
 }
 ?>

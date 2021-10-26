@@ -21,7 +21,7 @@
     //modificaCompanya(7, "YoVuelo");
 
     // Eliminamos un vuelo.
-    //eliminaVuelo(16);
+    eliminaVuelo(18);
 
     // Extraemos todos los vuelos.
     extraeVuelos();
