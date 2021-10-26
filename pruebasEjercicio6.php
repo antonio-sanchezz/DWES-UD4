@@ -12,19 +12,23 @@
     require_once("ejercicio6.php");
 
     // Creamos un nuevo vuelo.
-    //creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
+    creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
 
     // Modificamos el destino de un vuelo.
-    //modificaDestino(7, "Italia");
+    modificaDestino(7, "Italia");
 
     // Modificamos la compañia de un vuelo.
-    //modificaCompanya(7, "YoVuelo");
+    modificaCompanya(7, "YoVuelo");
 
     // Eliminamos un vuelo.
-    //eliminaVuelo(18);
+    eliminaVuelo(18);
 
     // Extraemos todos los vuelos.
-    extraeVuelos();
+    $vuelos = extraeVuelos();
+    while ($row = mysqli_fetch_assoc($vuelos)) {
+        echo "ID:" . $row['id'] . " - El vuelo con origen " . $row['Origen'] . " y destino " . $row['Destino'] . " tiene fecha prevista " . $row['Fecha'] . " y es operado por la compañía " . $row['Companya'] . " con el modelo de avion " . $row['ModeloAvion'] . "<br>";
+        echo "<br>";
+    }
 
     ?>
 </body>
