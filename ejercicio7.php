@@ -32,7 +32,7 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
     return $execute;
 }
 
-//creaVuelo("Valencia", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
+creaVuelo("Valencia", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
 
 function modificaDestino($id, $nuevoDestino) {
     
@@ -53,7 +53,7 @@ function modificaDestino($id, $nuevoDestino) {
     return $execute;
 }
 
-//modificaDestino(23, "Nevada");
+modificaDestino(23, "Nevada");
 
 function modificaCompanya($id, $nuevaCompanya) {
 
@@ -74,7 +74,7 @@ function modificaCompanya($id, $nuevaCompanya) {
     return $execute;
 }
 
-//modificaCompanya(23, "AvionesVoladoresSA");
+modificaCompanya(23, "AvionesVoladoresSA");
 
 function eliminaVuelo($id) {
 
