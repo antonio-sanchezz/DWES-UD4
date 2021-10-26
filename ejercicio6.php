@@ -25,12 +25,12 @@ function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion) {
 
     if ($stmt = mysqli_prepare($db, $sql)) {
         mysqli_stmt_bind_param($stmt, "sssss", $origen, $destino, $fecha, $companya, $modeloAvion);
-        mysqli_stmt_execute($stmt);
+        $execute = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
-    mysqli_close($db);
 
-    return $stmt;
+    mysqli_close($db);
+    return $execute;
 }
 
 function modificaDestino($id, $nuevoDestino) {
@@ -43,11 +43,12 @@ function modificaDestino($id, $nuevoDestino) {
 
     if ($stmt = mysqli_prepare($db, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $nuevoDestino, $id);
-        mysqli_stmt_execute($stmt);
+        $execute = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+
     mysqli_close($db);
-    return $stmt;
+    return $execute;
 }
 
 function modificaCompanya($id, $nuevaCompanya) {
@@ -60,11 +61,12 @@ function modificaCompanya($id, $nuevaCompanya) {
 
     if ($stmt = mysqli_prepare($db, $sql)) {
         mysqli_stmt_bind_param($stmt, "si", $nuevaCompanya, $id);
-        mysqli_stmt_execute($stmt);
+        $execute = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+
     mysqli_close($db);
-    return $stmt;
+    return $execute;
 }
 
 function eliminaVuelo($id) {
@@ -77,11 +79,12 @@ function eliminaVuelo($id) {
 
     if ($stmt = mysqli_prepare($db, $sql)) {
         mysqli_stmt_bind_param($stmt, "i", $id);
-        mysqli_stmt_execute($stmt);
+        $execute = mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+
     mysqli_close($db);
-    return $stmt;
+    return $execute;
 }
 
 function extraeVuelos() {
@@ -94,7 +97,7 @@ function extraeVuelos() {
 
     if ($stmt = mysqli_prepare($db, $sql)) {
 
-        mysqli_stmt_execute($stmt);
+        $execute = mysqli_stmt_execute($stmt);
 
         mysqli_stmt_bind_result($stmt, $id, $origen, $destino, $fecha, $companya, $modeloAvion);
 
@@ -103,7 +106,8 @@ function extraeVuelos() {
         }
         mysqli_stmt_close($stmt);
     }
+
     mysqli_close($db);
-    return $stmt;
+    return $execute;
 }
 ?>
