@@ -15,13 +15,13 @@
     //creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
 
     // Modificamos el destino de un vuelo.
-    modificaDestino(21, "Italia");
+    //modificaDestino(7, "Italia");
 
     // Modificamos la compañia de un vuelo.
     //modificaCompanya(7, "YoVuelo");
 
     // Eliminamos un vuelo.
-    eliminaVuelo(18);
+    //eliminaVuelo(18);
 
     // Extraemos todos los vuelos.
     extraeVuelos();
