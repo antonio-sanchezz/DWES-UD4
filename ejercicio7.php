@@ -2,10 +2,12 @@
 
 function connectionDB() {
 
-    $mysqli = new mysqli('localhost','developer','developer','agenciaviajes');
+    @$mysqli = new mysqli('localhost','developer','developer','agenciaviajes');
 
-    if ($mysqli->error != null) {
-        echo "<p>Error $mysqli->error conectando a la base de datos: " . mysqli_connect_error() . "</p>";
+    $error = $mysqli->connect_errno;
+
+    if ($error != null) {
+        echo "<p>Error $error conectando a la base de datos: " . $mysqli->connect_errno . "</p>";
         echo exit();
     }
 
@@ -79,7 +81,7 @@ function eliminaVuelo($id) {
 
     $db->stmt_init();
 
-    if ($stmt = mysqli_prepare($db, $sql)) {
+    if ($stmt = $db->prepare($sql)) {
         $stmt->bind_param("i", $id);
         $execute = $stmt->execute();
         $stmt->close();
@@ -99,6 +101,25 @@ function extraeVuelos() {
     $db->close();
 
     return $result;
+}
+
+// Creamos un nuevo vuelo.
+creaVuelo("Sevilla", "Alaska", "2021-10-21 09:16:52", "Iberia", "R536");
+
+// Modificamos el destino de un vuelo.
+modificaDestino(7, "Italia");
+
+// Modificamos la compañia de un vuelo.
+modificaCompanya(7, "YoVuelo");
+
+// Eliminamos un vuelo.
+eliminaVuelo(18);
+
+// Extraemos todos los vuelos.
+$vuelos = extraeVuelos();
+while ($row = $vuelos->fetch_assoc()) {
+    echo "ID:" . $row['id'] . " - El vuelo con origen " . $row['Origen'] . " y destino " . $row['Destino'] . " tiene fecha prevista " . $row['Fecha'] . " y es operado por la compañía " . $row['Companya'] . " con el modelo de avion " . $row['ModeloAvion'] . "<br>";
+    echo "<br>";
 }
 
 ?>
