@@ -1,7 +1,7 @@
 CREATE DATABASE cocina;
 
 create table recetas (
-    id INDEX NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     dificultad VARCHAR(25) NOT NULL,
     tipoCocina VARCHAR(50) NOT NULL,
