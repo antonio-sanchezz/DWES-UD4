@@ -76,6 +76,8 @@ try {
 
         $execute = $stmt->execute();
 
+        $conn = null;
+
         return $execute;
     }
 
@@ -87,6 +89,8 @@ try {
         $stmt->bindParam(1, $id);
 
         $stmt->execute();
+        
+        $conn = null;
     }
 
 } catch (PDOException $e) {
