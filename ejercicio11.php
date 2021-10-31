@@ -6,8 +6,8 @@ try {
 
         $servidor = "localhost";
         $baseDatos = "agenciaviajes";
-        $usuario = "admin";
-        $pass = "mHLt54mDn86EYIk7";
+        $usuario = "developer";
+        $pass = "developer";
         $conn = null;
 
         try {
