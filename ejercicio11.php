@@ -1,113 +1,107 @@
 <?php
 
-try {
+// CONEXION A LA BASE DE DATOS.
+function db() {
 
-    // CONEXION A LA BASE DE DATOS.
-    function db() {
+    $servidor = "localhost";
+    $baseDatos = "agenciaviajes";
+    $usuario = "developer";
+    $pass = "developer";
+    $conn = null;
 
-        $servidor = "localhost";
-        $baseDatos = "agenciaviajes";
-        $usuario = "developer";
-        $pass = "developer";
-        $conn = null;
-
-        try {
-            $conn = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $pass);
-        } catch (PDOException $e) {
-            echo "Connection fallida: " . $e->getMessage();
-        }
-
-        return $conn;
+    try {
+        $conn = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $pass);
+    } catch (PDOException $e) {
+        echo "Connection fallida: " . $e->getMessage();
     }
 
-    // INSERTAR UNA NUEVA FILA.
-    function creaTurista($nombre, $apellido1, $apellido2, $direccion, $telefono) {
-        $conn = db();
-        $id = null;
+    return $conn;
+}
 
-        $sqlInsert = "INSERT INTO turista (nombre, apellido1, apellido2, direccion, telefono) VALUES (?, ?, ?, ?, ?)";
-        $stmt = $conn->prepare($sqlInsert);
-        $stmt->bindParam(1, $nombre);
-        $stmt->bindParam(2, $apellido1);
-        $stmt->bindParam(3, $apellido2);
-        $stmt->bindParam(4, $direccion);
-        $stmt->bindParam(5, $telefono);
+// INSERTAR UNA NUEVA FILA.
+function creaTurista($nombre, $apellido1, $apellido2, $direccion, $telefono) {
+    $conn = db();
+    $id = null;
 
-        $stmt->execute();
-        $last_id = $conn->lastInsertId();
+    $sqlInsert = "INSERT INTO turista (nombre, apellido1, apellido2, direccion, telefono) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sqlInsert);
+    $stmt->bindParam(1, $nombre);
+    $stmt->bindParam(2, $apellido1);
+    $stmt->bindParam(3, $apellido2);
+    $stmt->bindParam(4, $direccion);
+    $stmt->bindParam(5, $telefono);
 
-        $conn = null;
+    $stmt->execute();
+    $last_id = $conn->lastInsertId();
 
-        return $last_id;
-    }
+    $conn = null;
 
-    // OBTENER UN TURISTA MEDIANTE SU ID.
-    function extraeTurista($id) {
-        $conn = db();
-        $turista = null;
+    return $last_id;
+}
 
-        $sqlQuery = "SELECT * FROM turista WHERE id = ?";
-        $stmt = $conn->prepare($sqlQuery);
-        $stmt->bindParam(1, $id);
+// OBTENER UN TURISTA MEDIANTE SU ID.
+function extraeTurista($id) {
+    $conn = db();
+    $turista = null;
 
-        $stmt->execute();
+    $sqlQuery = "SELECT * FROM turista WHERE id = ?";
+    $stmt = $conn->prepare($sqlQuery);
+    $stmt->bindParam(1, $id);
 
-        $turistas = $stmt->fetchAll();
+    $stmt->execute();
 
-        $conn = null;
+    $turistas = $stmt->fetchAll();
 
-        return $turistas;
-    }
+    $conn = null;
 
-    // EXTREAEMOS TURISTAS
-    function extraeTuristas() {
-        $conn = db();
+    return $turistas;
+}
 
-        $sqlQuery = "SELECT * FROM turista";
-        $stmt = $conn->query($sqlQuery);
+// EXTREAEMOS TURISTAS
+function extraeTuristas() {
+    $conn = db();
 
-        $turistas = $stmt->fetchAll();
+    $sqlQuery = "SELECT * FROM turista";
+    $stmt = $conn->query($sqlQuery);
 
-        $conn = null;
+    $turistas = $stmt->fetchAll();
 
-        return $turistas;
-    }
+    $conn = null;
 
-    // ACTUALIZAMOS TURISTA (ID, DIRECCION, TELEFONO).
-    function actualizaTurista($id, $direccion, $telefono) {
-        $conn = db();
-        $execute = false;
+    return $turistas;
+}
 
-        $sqlUpdate = "UPDATE turista SET direccion=?,telefono=? WHERE id=?";
-        $stmt = $conn->prepare($sqlUpdate);
-        $stmt->bindParam(1, $direccion);
-        $stmt->bindParam(2, $telefono);
-        $stmt->bindParam(3, $id);
+// ACTUALIZAMOS TURISTA (ID, DIRECCION, TELEFONO).
+function actualizaTurista($id, $direccion, $telefono) {
+    $conn = db();
+    $execute = false;
 
-        $execute = $stmt->execute();
+    $sqlUpdate = "UPDATE turista SET direccion=?,telefono=? WHERE id=?";
+    $stmt = $conn->prepare($sqlUpdate);
+    $stmt->bindParam(1, $direccion);
+    $stmt->bindParam(2, $telefono);
+    $stmt->bindParam(3, $id);
 
-        $conn = null;
+    $execute = $stmt->execute();
 
-        return $execute;
-    }
+    $conn = null;
 
-    // ELIMINAR UN TURISTA POR ID.
-    function eliminaTurista($id) {
-        $conn = db();
-        $execute = false;
+    return $execute;
+}
 
-        $sqlDel = "DELETE FROM turista WHERE id=?";
-        $stmt = $conn->prepare($sqlDel);
-        $stmt->bindParam(1, $id);
+// ELIMINAR UN TURISTA POR ID.
+function eliminaTurista($id) {
+    $conn = db();
+    $execute = false;
 
-        $execute = $stmt->execute();
-        
-        $conn = null;
-        return $execute;
-    }
+    $sqlDel = "DELETE FROM turista WHERE id=?";
+    $stmt = $conn->prepare($sqlDel);
+    $stmt->bindParam(1, $id);
 
-} catch (PDOException $e) {
-    echo "Conexión fallida: " . $e->getMessage();
+    $execute = $stmt->execute();
+    
+    $conn = null;
+    return $execute;
 }
 
 // CREAR TURISTA (PRUEBA).
