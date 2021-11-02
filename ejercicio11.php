@@ -99,9 +99,10 @@ try {
         $stmt = $conn->prepare($sqlDel);
         $stmt->bindParam(1, $id);
 
-        $stmt->execute();
+        $execute = $stmt->execute();
         
         $conn = null;
+        return $execute;
     }
 
 } catch (PDOException $e) {
