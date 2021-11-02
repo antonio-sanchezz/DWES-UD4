@@ -94,6 +94,7 @@ try {
     // ELIMINAR UN TURISTA POR ID.
     function eliminaTurista($id) {
         $conn = db();
+        $execute = false;
 
         $sqlDel = "DELETE FROM turista WHERE id=?";
         $stmt = $conn->prepare($sqlDel);
