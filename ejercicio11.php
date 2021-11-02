@@ -2,6 +2,7 @@
 
 try {
 
+    // CONEXION A LA BASE DE DATOS.
     function db() {
         $servidor = "localhost";
         $baseDatos = "agenciaviajes";
@@ -51,6 +52,7 @@ try {
         return $turistas;
     }
 
+    // EXTREAEMOS TURISTAS
     function extraeTuristas() {
         $conn = db();
 
@@ -64,6 +66,7 @@ try {
         return $turistas;
     }
 
+    // ACTUALIZAMOS TURISTA (ID, DIRECCION, TELEFONO).
     function actualizaTurista($id, $direccion, $telefono) {
         $conn = db();
         $execute = false;
@@ -81,6 +84,7 @@ try {
         return $execute;
     }
 
+    // ELIMINAR UN TURISTA POR ID.
     function eliminaTurista($id) {
         $conn = db();
 
@@ -106,7 +110,7 @@ foreach($turistas as $turista) {
     echo "Nombre: " . $turista['nombre'] . " " . $turista['apellido1'] . " " . $turista['apellido2'] . " Dirección: " . $turista['direccion'] . " Teléfono: " . $turista['telefono'] . "<br>";
 }
 
-// EXTREAEMOS TURISTA (PRUEBA).
+// EXTREAEMOS TURISTAS (PRUEBA).
 $turistas = extraeTuristas();
 
 foreach($turistas as $turista) {
