@@ -4,11 +4,18 @@ try {
 
     // CONEXION A LA BASE DE DATOS.
     function db() {
+
         $servidor = "localhost";
         $baseDatos = "agenciaviajes";
         $usuario = "developer";
         $pass = "developer";
-        $conn = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $pass);
+        $conn = null;
+
+        try {
+            $conn = new PDO("mysql:host=$servidor;dbname=$baseDatos", $usuario, $pass);
+        } catch (PDOException $e) {
+            echo "Connection fallida: " . $e->getMessage();
+        }
 
         return $conn;
     }
@@ -121,6 +128,6 @@ foreach($turistas as $turista) {
 echo(var_export(actualizaTurista(1,'Sevilla','654123789')));
 
 // ELIMINAR UN TURISTA (PRUEBA).
-eliminaTurista(45);
+eliminaTurista(5);
 
 ?>
